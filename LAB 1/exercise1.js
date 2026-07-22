@@ -43,13 +43,13 @@ console.log(towords(5));
 console.log(towords(3));
 console.log(towords(7));
 
-// const rollNum = "250320100117";
-// const digits = String(rollNum).split("");
-// console.log(digits);
-// let inWords = "";
+const rollNum = "250320100117";
+const digits = String(rollNum).split("");
+console.log(digits);
+let inWords = "";
 
-// digits.forEach ((d) => {
-//     inWords += " " + towords(Number(d));
-// }
-// );
-//  console.log(inWords);
+digits.forEach ((d) => {
+    inWords += " " + towords(Number(d));
+}
+);
+ console.log(inWords);
