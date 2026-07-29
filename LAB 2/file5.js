@@ -1,0 +1,6 @@
+import { stat } from "fs/promises";
+const stats = await stat ("readme.md");
+console.log('is file',stat.isFile());
+console.log("is Directory",stats.isDirectory());
+console.log("size (bytes):" stats.size);
+console.log("Last modified:", stats.mtime);
