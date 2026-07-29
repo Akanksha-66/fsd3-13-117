@@ -1,0 +1,30 @@
+# FS (FileSystem) Node JS's Module 
+
+it directly connect with client OS rather than browser
+
+## Major tak of FS Module
+- Reading and writing Files 
+    - readFile()
+    - writeFile()
+    -appendFile()
+-Directory Management
+    - mkdir()
+    - rmdir()
+    - readdir()  
+- Metadata/information 
+   - start ()
+   - lstat ()
+   - fstat ()
+-watching for changes
+   -watch()
+   -watchFiles ()
+   -unwatchFiles()
+- streaming large Files
+    - createReadStream()
+    -createWriteSream()
+- file operation
+   -rename ()
+   -truncate ()
+   -unlink()
+   -link ()    
+   -syslink ()

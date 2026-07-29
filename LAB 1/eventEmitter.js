@@ -15,4 +15,4 @@ task.on("greet", (name) => {
     console.log(`&{name} logged out`);
 }); //can also use one here for getting one time only
 task.emit("greet", "Akanksha Dixit"); //announcement
-task.emit("greet", "aditi");
+task.emit("greet", "akanksha");

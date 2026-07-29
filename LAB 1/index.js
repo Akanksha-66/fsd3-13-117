@@ -1,2 +1,4 @@
-console.log("Hello Node JS");
-console.log("Node Js as Backend");
+import { writeFile} from "fs/promises";
+
+await writeFile("stud.txt","Name: Arya");
+console.log("File written");
