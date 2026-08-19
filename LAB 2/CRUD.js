@@ -13,6 +13,25 @@ const getCart = async () => {
   const data = await readFile(FILE, "utf-8");
   return JSON.parse(data);
 };
+
+const addtoCart = async (item) => {
+const products = getCart();
+products.push(item);
+await SaveCart(products);
+};
+
+const saveCart = () => {
+  console.log("show cart");
+};
+
+const updateCart = () => {
+  console.log("update cart");
+};
+
+const deleteFromCart = () => {
+  console.log("deleteCart");
+};
+
 const main  = async () => {
     const cin = readline.createInterface({ input: stdin, output: stdout });
     let choice;
@@ -27,13 +46,24 @@ const main  = async () => {
     console.log("Entered choice:",choice);
     switch(Number(choice)) {
         case 1:
-            console.log("add to cart");
+            let data =  await cin.question("Enter id, name, price, qty:");
+            let p = data.split(",");
+            let q = p.map ((item) => item.trim());
+            let [id,name,price,qty] = q;
+            console.log(id, name, price, qty);
+            const product = {
+                    id: Number(id),
+                    name,
+                    price: Number(price),
+                   qty : Number(qty),
+                      };
+                      console.log(product);
             break;
             case 2:
-            console.log("show cart items");
+              showCart();
             break;
             case 3:
-            console.log("remove item");
+           deleteFromCart();
             break;
             case 4:
             console.log("update quantity");
