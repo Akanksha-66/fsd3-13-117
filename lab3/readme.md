@@ -86,5 +86,16 @@ price: 25000,
 rating:4.5,
 review:200
 }
-```
 
+## headers
+header is used to tell the client, the type of data sent by the server it may be html files, json data, plain text file, css file any tokens (for logging) 
+1. text/plain ->simple text
+2. text/html -> html contents/file
+3. applicatin/json -> json contents/ file
+4. text/css -> stylesheet
+5. application/forn-data -> for uploading files
+6. application/auth -> for tokens 
+the headers can be set by res object at server side by two ways 
+
+1. res.setHeaders()
+2. res.writeHead()
