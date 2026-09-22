@@ -26,6 +26,7 @@ const main = () => {
     console.log("end");
     new Promise((resolve, reject) => {
         console.log("I am promise1");
+        console.log("hello");
      
     });
     new Promise((resolve, reject) => {
