@@ -6,3 +6,4 @@ console.log("is file:", stats.isFile());
 console.log("is Directory:", stats.isDirectory());
 console.log("size (bytes):", stats.size);
 console.log("Last modified:", stats.mtime);
+console.log("hello");

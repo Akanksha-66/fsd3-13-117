@@ -10,3 +10,4 @@ import { mkdir, rm } from "fs/promises";
 // console.log("all folders created");
 
 await rm("upload", { recursive: true});
+console.log("hello");
