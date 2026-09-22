@@ -42,6 +42,7 @@ const towords = (digit) => {
 console.log(towords(5));
 console.log(towords(3));
 console.log(towords(7));
+console.log("hello");
 
 const rollNum = "250320100117";
 const digits = String(rollNum).split("");
