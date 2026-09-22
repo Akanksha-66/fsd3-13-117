@@ -17,3 +17,4 @@ sayHello('Akanksha Dixit');
 sayHi("Akanksha");
 console.log(`sum of 2 and 5 is ${sum(2,5)}`);
 console.log(`sum of 2 and 5 is ${findsum(2,5)}`);
+console.log("hello");
