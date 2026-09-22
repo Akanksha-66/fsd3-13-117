@@ -22,3 +22,4 @@ await readData("happy.txt");
 await appendData("happy.txt", "FSD is interesting");
 await readData("happy.txt");
 await deleteFile("happy.txt");
+console.log("hello");
