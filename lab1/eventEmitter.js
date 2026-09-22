@@ -13,6 +13,8 @@ task.once("greet", starts); //for one time only
 task.on("greet", sayHi);   //event and method binding 
 task.on("greet", (name) => {
     console.log(`&{name} logged out`);
+    console.log("hello");
+    
 }); //can also use one here for getting one time only
 task.emit("greet", "Akanksha Dixit"); //announcement
 task.emit("greet", "akanksha");
