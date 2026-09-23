@@ -99,3 +99,8 @@ the headers can be set by res object at server side by two ways
 
 1. res.setHeaders()
 2. res.writeHead()
+
+Get -> no parameters passed to the server when we receive all items - get all items
+Post -> to add records we pass the value from BODY section in json format of api tester (echo api)
+delete -> to delete any product we pass parameter that is id of the product from url
+update -> put/patch - to update any products we pass id from url and data to update from body
