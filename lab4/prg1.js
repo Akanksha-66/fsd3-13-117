@@ -18,9 +18,11 @@ const products = [
 app.get("/products",(req,res)=>{
     res.status(200).send(products);
 });
-// app.get("/products",(req,res)=>{
-//     res.status(200).json(products);
-// });
+app.get("/products",(req,res)=>{
+    res.status(200).json(products);
+});
+
+
 
 app.use((req,res) => {
 res.status(404).send("<h1>Page not found </h1>");

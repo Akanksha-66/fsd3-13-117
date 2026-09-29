@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Aura Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        aura: {
+                            purple: '#8B5CF6',
+                            cyan: '#06B6D4',
+                            pink: '#EC4899',
+                            dark: '#0B0F19',
+                            card: '#111827',
+                            accent: '#6366F1'
+                        }
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 4s infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%': { opacity: '0.4', filter: 'blur(40px)' },
+                            '100%': { opacity: '0.8', filter: 'blur(60px)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .glass-card {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 0 30px -5px rgba(139, 92, 246, 0.25);
+        }
+
+        .glow-text {
+            background: linear-gradient(135deg, #FFF 0%, #A5B4FC 50%, #EC4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-border {
+            position: relative;
+            border-radius: 1.5rem;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(6, 182, 212, 0.2));
+            padding: 1px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0B0F19;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1F2937;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #374151;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-aura-dark text-slate-100 font-sans antialiased selection:bg-aura-purple selection:text-white overflow-x-hidden">
+
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav border-b border-slate-800/60 transition-all duration-300"
+        id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div
+                    class="w-10 h-10 rounded-xl bg-gradient-to-tr from-aura-purple via-indigo-500 to-aura-cyan flex items-center justify-center shadow-lg shadow-aura-purple/30 group-hover:scale-105 transition-transform duration-300">
+                    <i class="fa-solid font-bold text-white text-xl">A</i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-extrabold tracking-wider text-white leading-none">AURA <span
+                            class="text-aura-cyan font-normal">TECH</span></span>
+                    <span class="text-[10px] text-slate-400 tracking-widest uppercase mt-0.5">Technologies Inc.</span>
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                <a href="index.html#features" class="hover:text-white transition-colors">Aura Phone X</a>
+                <a href="#mission" class="text-aura-cyan font-semibold transition-colors">About Us</a>
+                <a href="#careers" class="hover:text-white transition-colors">Careers</a>
+                <a href="#impact" class="hover:text-white transition-colors">Sustainability</a>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="index.html#pricing"
+                    class="px-6 py-2.5 rounded-full bg-gradient-to-r from-aura-purple to-indigo-600 hover:from-aura-purple hover:to-aura-pink text-white font-semibold text-sm shadow-lg shadow-aura-purple/25 hover:shadow-aura-pink/30 hover:scale-105 transition-all duration-300">
+                    Explore Aura X
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden border-b border-slate-800 bg-aura-dark/95 backdrop-blur-xl px-4 pt-2 pb-6 space-y-4 text-center">
+            <a href="index.html" class="block py-2 text-slate-300 hover:text-white text-base font-medium">Home</a>
+            <a href="index.html#features" class="block py-2 text-slate-300 hover:text-white text-base font-medium">Aura
+                Phone X</a>
+            <a href="#mission" class="block py-2 text-aura-cyan font-semibold text-base">About Us</a>
+            <a href="#careers" class="block py-2 text-slate-300 hover:text-white text-base font-medium">Careers</a>
+            <a href="#impact"
+                class="block py-2 text-slate-300 hover:text-white text-base font-medium">Sustainability</a>
+            <a href="index.html#pricing"
+                class="block w-full py-3 rounded-xl bg-gradient-to-r from-aura-purple to-indigo-600 text-white font-semibold shadow-lg text-center">
+                Explore Aura X
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] pt-32 pb-20 flex items-center justify-center overflow-hidden">
+        <div
+            class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-aura-purple via-indigo-600 to-aura-pink rounded-full animate-pulse-glow pointer-events-none opacity-25">
+        </div>
+        <div class="absolute top-10 right-10 w-96 h-96 bg-aura-cyan/20 rounded-full blur-[100px] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-8">
+            <div
+                class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card border border-aura-purple/30 text-aura-cyan text-xs sm:text-sm font-semibold tracking-wide mx-auto">
+                <span class="flex h-2 w-2 rounded-full bg-aura-cyan animate-ping"></span>
+                <span>PIONEERING NEXT-GEN HUMAN COMPUTING</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight max-w-5xl mx-auto">
+                Designing the Future of <br>
+                <span class="glow-text">Mobile Innovation</span>
+            </h1>
+
+            <p class="text-slate-400 text-lg sm:text-xl max-w-3xl mx-auto font-light leading-relaxed">
+                At Aura Technologies, we blend advanced neural computing, sustainable materials, and minimalist
+                craftsmanship to empower humanity with effortless, invisible intelligence.
+            </p>
+
+            <!-- Key Company Metrics / Achievements -->
+            <div class="pt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div
+                    class="glass-card p-6 rounded-2xl border border-slate-800/80 hover:border-aura-purple/50 transition-all">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white glow-text">5M+</p>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-1 font-medium">Global Active Users</p>
+                </div>
+                <div
+                    class="glass-card p-6 rounded-2xl border border-slate-800/80 hover:border-aura-cyan/50 transition-all">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white glow-text">142+</p>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-1 font-medium">Global Tech Patents</p>
+                </div>
+                <div
+                    class="glass-card p-6 rounded-2xl border border-slate-800/80 hover:border-aura-pink/50 transition-all">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white glow-text">99.8%</p>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-1 font-medium">User Satisfaction</p>
+                </div>
+                <div
+                    class="glass-card p-6 rounded-2xl border border-slate-800/80 hover:border-emerald-500/50 transition-all">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-emerald-400">100%</p>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-1 font-medium">Carbon Neutral Ops</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Core Values Section -->
+    <section id="mission" class="py-24 bg-slate-950/60 relative border-y border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            <!-- Mission & Vision Statement Block -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-xs font-bold text-aura-cyan uppercase tracking-widest">Our Purpose</h2>
+                    <h3 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+                        Technology That Serves Life, Not The Other Way Around.
+                    </h3>
+                    <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+                        Founded with a vision to eliminate digital noise, Aura Technologies develops hardware and
+                        software engineered to blend seamlessly into your day. We believe the most powerful technology
+                        feels natural, quiet, and deeply intuitive.
+                    </p>
+                </div>
+
+                <div
+                    class="glass-card p-8 sm:p-10 rounded-3xl border border-aura-purple/30 relative overflow-hidden group">
+                    <div
+                        class="absolute -right-10 -bottom-10 w-48 h-48 bg-aura-purple/20 rounded-full blur-3xl pointer-events-none">
+                    </div>
+                    <i class="fa-solid fa-quote-left text-4xl text-aura-purple/40 mb-4 block"></i>
+                    <p class="text-slate-200 text-lg sm:text-xl italic leading-relaxed font-light mb-6">
+                        "We aren't just making another mobile device. We are redefining the relationship between human
+                        thought and digital execution."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-tr from-aura-purple to-aura-pink flex items-center justify-center font-extrabold text-white">
+                            EV
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Elena Vance</h4>
+                            <p class="text-slate-400 text-xs">Founder & CEO, Aura Technologies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Values Cards Grid -->
+            <div class="space-y-8">
+                <div class="text-center max-w-2xl mx-auto">
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Guiding Principles</h3>
+                    <p class="text-slate-400 text-sm mt-2">The four pillars behind every design choice, chip
+                        architecture, and line of code.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Value 1 -->
+                    <div class="glass-card p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-aura-purple/20 border border-aura-purple/40 flex items-center justify-center text-aura-purple mb-6">
+                            <i class="fa-solid fa-lightbulb text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2">Uncompromising Innovation</h4>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                            Pushing silicon and software architecture beyond traditional boundaries with neural
+                            processing.
+                        </p>
+                    </div>
+
+                    <!-- Value 2 -->
+                    <div class="glass-card p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mb-6">
+                            <i class="fa-solid fa-leaf text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2">Eco-Conscious Design</h4>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                            Building long-lasting hardware using 100% recycled metals and zero single-use plastics.
+                        </p>
+                    </div>
+
+                    <!-- Value 3 -->
+                    <div class="glass-card p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-aura-cyan/20 border border-aura-cyan/40 flex items-center justify-center text-aura-cyan mb-6">
+                            <i class="fa-solid fa-user-shield text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2">Absolute Privacy First</h4>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                            On-device neural computing ensures your personal data remains strictly under your control.
+                        </p>
+                    </div>
+
+                    <!-- Value 4 -->
+                    <div class="glass-card p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-aura-pink/20 border border-aura-pink/40 flex items-center justify-center text-aura-pink mb-6">
+                            <i class="fa-solid fa-gem text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2">Masterful Craftsmanship</h4>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                            Obsessive precision engineered into titanium frames, optics, and tactile interaction design.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Story / Interactive Timeline -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-aura-purple uppercase tracking-widest">Our Journey</h2>
+                <p class="text-3xl sm:text-5xl font-black text-white tracking-tight">The Evolution of Aura Tech</p>
+                <p class="text-slate-400 text-base">From a visionary lab concept to global technological breakthrough.
+                </p>
+            </div>
+
+            <!-- Timeline Horizontal/Vertical Structure -->
+            <div
+                class="relative border-l-2 border-slate-800 lg:border-l-0 lg:grid lg:grid-cols-4 lg:gap-8 ml-4 lg:ml-0">
+                <!-- Milestone 1 -->
+                <div class="mb-12 lg:mb-0 pl-8 lg:pl-0 relative group">
+                    <div
+                        class="hidden lg:block absolute -bottom-3 left-0 w-full h-0.5 bg-slate-800 group-hover:bg-aura-purple transition-colors">
+                    </div>
+                    <div
+                        class="absolute -left-[9px] lg:left-0 top-0 lg:-top-3 w-4 h-4 rounded-full bg-aura-purple ring-4 ring-slate-900">
+                    </div>
+                    <div
+                        class="glass-card p-6 rounded-2xl border border-slate-800 transition-all group-hover:border-aura-purple/50">
+                        <span class="text-xs font-bold text-aura-cyan uppercase tracking-wider">2021 • Inception</span>
+                        <h4 class="text-lg font-bold text-white mt-1 mb-2">The Silicon Lab</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Aura Technologies is founded in San Francisco by leading neural computing and material
+                            engineering researchers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div class="mb-12 lg:mb-0 pl-8 lg:pl-0 relative group">
+                    <div
+                        class="hidden lg:block absolute -bottom-3 left-0 w-full h-0.5 bg-slate-800 group-hover:bg-aura-cyan transition-colors">
+                    </div>
+                    <div
+                        class="absolute -left-[9px] lg:left-0 top-0 lg:-top-3 w-4 h-4 rounded-full bg-aura-cyan ring-4 ring-slate-900">
+                    </div>
+                    <div
+                        class="glass-card p-6 rounded-2xl border border-slate-800 transition-all group-hover:border-aura-cyan/50">
+                        <span class="text-xs font-bold text-aura-cyan uppercase tracking-wider">2023 •
+                            Breakthrough</span>
+                        <h4 class="text-lg font-bold text-white mt-1 mb-2">Quantum Engine Chip</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Patented our custom 2nm Quantum-X neural coprocessor capable of performing 35 trillion
+                            operations per second.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div class="mb-12 lg:mb-0 pl-8 lg:pl-0 relative group">
+                    <div
+                        class="hidden lg:block absolute -bottom-3 left-0 w-full h-0.5 bg-slate-800 group-hover:bg-aura-pink transition-colors">
+                    </div>
+                    <div
+                        class="absolute -left-[9px] lg:left-0 top-0 lg:-top-3 w-4 h-4 rounded-full bg-aura-pink ring-4 ring-slate-900">
+                    </div>
+                    <div
+                        class="glass-card p-6 rounded-2xl border border-slate-800 transition-all group-hover:border-aura-pink/50">
+                        <span class="text-xs font-bold text-aura-cyan uppercase tracking-wider">2025 • Launch</span>
+                        <h4 class="text-lg font-bold text-white mt-1 mb-2">Aura OS Unveiled</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Released our privacy-centric operating system with intent-driven AI, reaching over 1 million
+                            global beta testers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 4 -->
+                <div class="pl-8 lg:pl-0 relative group">
+                    <div
+                        class="hidden lg:block absolute -bottom-3 left-0 w-full h-0.5 bg-slate-800 group-hover:bg-emerald-400 transition-colors">
+                    </div>
+                    <div
+                        class="absolute -left-[9px] lg:left-0 top-0 lg:-top-3 w-4 h-4 rounded-full bg-emerald-400 ring-4 ring-slate-900">
+                    </div>
+                    <div
+                        class="glass-card p-6 rounded-2xl border border-slate-800 transition-all group-hover:border-emerald-400/50">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">2026 • The
+                            Flagship</span>
+                        <h4 class="text-lg font-bold text-white mt-1 mb-2">Aura Phone X</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Debuted our liquid titanium mobile flagship with 60-hour Silicon-Carbon battery and zero
+                            carbon footprint.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Team Section -->
+    <section class="py-24 bg-slate-950/80 border-t border-slate-800/60 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-xs font-bold text-aura-pink uppercase tracking-widest">Visionary Leadership</h2>
+                <p class="text-3xl sm:text-5xl font-black text-white tracking-tight">Meet the Minds Behind Aura</p>
+                <p class="text-slate-400 text-base">A world-class collective of engineers, designers, and AI
+                    researchers.</p>
+            </div>
+
+            <!-- Team Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Executive 1 -->
+                <div
+                    class="glass-card p-6 rounded-3xl border border-slate-800 text-center group hover:border-aura-purple/50 transition-all">
+                    <div
+                        class="w-28 h-28 mx-auto rounded-2xl bg-gradient-to-tr from-aura-purple to-indigo-600 p-1 mb-6 shadow-xl group-hover:scale-105 transition-transform">
+                        <div
+                            class="w-full h-full rounded-xl bg-slate-900 flex items-center justify-center font-black text-3xl text-white">
+                            EV
+                        </div>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Elena Vance</h4>
+                    <p class="text-xs text-aura-cyan font-semibold mb-3">Founder & Chief Executive Officer</p>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                        Former Neural Micro-architecture Lead with 15+ years experience building next-gen silicon
+                        platforms.
+                    </p>
+                    <div class="flex justify-center space-x-4 text-slate-400 text-sm">
+                        <a href="#" class="hover:text-white transition-colors"><i
+                                class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <!-- Executive 2 -->
+                <div
+                    class="glass-card p-6 rounded-3xl border border-slate-800 text-center group hover:border-aura-cyan/50 transition-all">
+                    <div
+                        class="w-28 h-28 mx-auto rounded-2xl bg-gradient-to-tr from-aura-cyan to-teal-500 p-1 mb-6 shadow-xl group-hover:scale-105 transition-transform">
+                        <div
+                            class="w-full h-full rounded-xl bg-slate-900 flex items-center justify-center font-black text-3xl text-white">
+                            DK
+                        </div>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Dr. David Kross</h4>
+                    <p class="text-xs text-aura-cyan font-semibold mb-3">Chief Technology Officer</p>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                        Pioneer in quantum edge computing algorithms and hardware-accelerated machine intelligence.
+                    </p>
+                    <div class="flex justify-center space-x-4 text-slate-400 text-sm">
+                        <a href="#" class="hover:text-white transition-colors"><i
+                                class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <!-- Executive 3 -->
+                <div
+                    class="glass-card p-6 rounded-3xl border border-slate-800 text-center group hover:border-aura-pink/50 transition-all">
+                    <div
+                        class="w-28 h-28 mx-auto rounded-2xl bg-gradient-to-tr from-aura-pink to-rose-500 p-1 mb-6 shadow-xl group-hover:scale-105 transition-transform">
+                        <div
+                            class="w-full h-full rounded-xl bg-slate-900 flex items-center justify-center font-black text-3xl text-white">
+                            SL
+                        </div>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Sophia Laurent</h4>
+                    <p class="text-xs text-aura-cyan font-semibold mb-3">Head of Industrial Design</p>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                        Award-winning hardware designer advocating for sustainable materials and ergonomic minimalism.
+                    </p>
+                    <div class="flex justify-center space-x-4 text-slate-400 text-sm">
+                        <a href="#" class="hover:text-white transition-colors"><i
+                                class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <!-- Executive 4 -->
+                <div
+                    class="glass-card p-6 rounded-3xl border border-slate-800 text-center group hover:border-emerald-500/50 transition-all">
+                    <div
+                        class="w-28 h-28 mx-auto rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-600 p-1 mb-6 shadow-xl group-hover:scale-105 transition-transform">
+                        <div
+                            class="w-full h-full rounded-xl bg-slate-900 flex items-center justify-center font-black text-3xl text-white">
+                            MJ
+                        </div>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Marcus Thorne</h4>
+                    <p class="text-xs text-aura-cyan font-semibold mb-3">VP of AI Research</p>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                        Specializes in private, zero-latency on-device transformer models and natural user interactions.
+                    </p>
+                    <div class="flex justify-center space-x-4 text-slate-400 text-sm">
+                        <a href="#" class="hover:text-white transition-colors"><i
+                                class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability & Impact Section -->
+    <section id="impact" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-[40px] p-8 sm:p-14 border border-emerald-500/30 relative overflow-hidden">
+                <div
+                    class="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none">
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div
+                            class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-earth-americas"></i>
+                            <span>Environmental Pledge</span>
+                        </div>
+                        <h3 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+                            Committed to Net-Zero Impact.
+                        </h3>
+                        <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
+                            We design electronics for permanence, recyclability, and circular manufacturing. Every step
+                            in the creation of Aura devices prioritizes our planet's ecological health.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                                <div>
+                                    <h5 class="text-white font-bold text-sm">100% Recycled Aluminum</h5>
+                                    <p class="text-slate-400 text-xs">Forged using recycled aerospace-grade alloys.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                                <div>
+                                    <h5 class="text-white font-bold text-sm">Zero Plastic Packaging</h5>
+                                    <p class="text-slate-400 text-xs">100% biodegradable bamboo fiber packaging.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                                <div>
+                                    <h5 class="text-white font-bold text-sm">100% Renewable Energy</h5>
+                                    <p class="text-slate-400 text-xs">Facilities powered entirely by solar and wind.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                                <div>
+                                    <h5 class="text-white font-bold text-sm">Free Global E-Waste Return</h5>
+                                    <p class="text-slate-400 text-xs">Trade-in recycling for any old smartphone.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Graphic Badge -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div
+                            class="w-64 h-64 rounded-full border-2 border-dashed border-emerald-500/40 p-4 flex items-center justify-center relative animate-pulse-slow">
+                            <div
+                                class="w-full h-full rounded-full bg-gradient-to-tr from-emerald-950 to-slate-900 border border-emerald-500/50 flex flex-col items-center justify-center text-center p-6 space-y-2">
+                                <i class="fa-solid fa-leaf text-4xl text-emerald-400"></i>
+                                <span class="text-2xl font-black text-white">0% E-WASTE</span>
+                                <span class="text-[11px] text-slate-400 uppercase tracking-widest">Circular
+                                    Engineering</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Culture Spotlight / Join Us Section -->
+    <section id="careers" class="py-24 bg-slate-950/60 border-t border-slate-800/60 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-xs font-bold text-aura-cyan uppercase tracking-widest">Join Our Journey</h2>
+                <p class="text-3xl sm:text-5xl font-black text-white tracking-tight">Shape the Future With Us</p>
+                <p class="text-slate-400 text-base">Explore open positions across hardware engineering, AI research, and
+                    design.</p>
+            </div>
+
+            <!-- Filterable Job Board Preview -->
+            <div class="space-y-6 max-w-4xl mx-auto">
+                <!-- Job Department Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button onclick="filterJobs('all')" id="filter-all"
+                        class="job-filter-btn active-filter px-5 py-2 rounded-full text-xs font-semibold bg-aura-purple text-white transition-all">All
+                        Roles</button>
+                    <button onclick="filterJobs('engineering')" id="filter-engineering"
+                        class="job-filter-btn px-5 py-2 rounded-full text-xs font-semibold glass-card text-slate-300 hover:text-white transition-all">Engineering</button>
+                    <button onclick="filterJobs('design')" id="filter-design"
+                        class="job-filter-btn px-5 py-2 rounded-full text-xs font-semibold glass-card text-slate-300 hover:text-white transition-all">Design
+                        & Product</button>
+                    <button onclick="filterJobs('ai')" id="filter-ai"
+                        class="job-filter-btn px-5 py-2 rounded-full text-xs font-semibold glass-card text-slate-300 hover:text-white transition-all">AI
+                        Research</button>
+                </div>
+
+                <!-- Job Listings Grid -->
+                <div class="space-y-4">
+                    <!-- Job Item 1 -->
+                    <div
+                        class="job-card engineering glass-card p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-aura-purple/50 transition-all">
+                        <div>
+                            <span class="text-[10px] font-bold text-aura-cyan uppercase tracking-wider">Engineering •
+                                Full-time</span>
+                            <h4 class="text-lg font-bold text-white mt-1">Senior Silicon Architecture Engineer</h4>
+                            <p class="text-xs text-slate-400 mt-1">San Francisco, CA or Remote</p>
+                        </div>
+                        <button onclick="openApplyModal('Senior Silicon Architecture Engineer')"
+                            class="px-5 py-2.5 rounded-xl border border-aura-purple text-aura-purple hover:bg-aura-purple hover:text-white font-semibold text-xs transition-all whitespace-nowrap">
+                            Apply Now
+                        </button>
+                    </div>
+
+                    <!-- Job Item 2 -->
+                    <div
+                        class="job-card design glass-card p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-aura-purple/50 transition-all">
+                        <div>
+                            <span class="text-[10px] font-bold text-aura-pink uppercase tracking-wider">Design •
+                                Full-time</span>
+                            <h4 class="text-lg font-bold text-white mt-1">Lead Industrial CMF Designer</h4>
+                            <p class="text-xs text-slate-400 mt-1">London, UK or San Francisco, CA</p>
+                        </div>
+                        <button onclick="openApplyModal('Lead Industrial CMF Designer')"
+                            class="px-5 py-2.5 rounded-xl border border-aura-purple text-aura-purple hover:bg-aura-purple hover:text-white font-semibold text-xs transition-all whitespace-nowrap">
+                            Apply Now
+                        </button>
+                    </div>
+
+                    <!-- Job Item 3 -->
+                    <div
+                        class="job-card ai glass-card p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-aura-purple/50 transition-all">
+                        <div>
+                            <span class="text-[10px] font-bold text-aura-purple uppercase tracking-wider">AI Research •
+                                Full-time</span>
+                            <h4 class="text-lg font-bold text-white mt-1">Principal Neural Model Scientist</h4>
+                            <p class="text-xs text-slate-400 mt-1">Remote (Worldwide)</p>
+                        </div>
+                        <button onclick="openApplyModal('Principal Neural Model Scientist')"
+                            class="px-5 py-2.5 rounded-xl border border-aura-purple text-aura-purple hover:bg-aura-purple hover:text-white font-semibold text-xs transition-all whitespace-nowrap">
+                            Apply Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Modal -->
+    <div id="apply-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="glass-card bg-slate-900 w-full max-w-lg rounded-3xl p-6 sm:p-8 border border-aura-purple/30 relative shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-card">
+            <button onclick="closeApplyModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div id="apply-form-container" class="space-y-6">
+                <div>
+                    <h3 class="text-2xl font-bold text-white">Join Aura Technologies</h3>
+                    <p class="text-slate-400 text-sm">Role: <span id="selected-role-text"
+                            class="font-bold text-aura-cyan">Engineer</span></p>
+                </div>
+
+                <form onsubmit="handleApplySubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Full Name</label>
+                        <input type="text" required placeholder="Jane Doe"
+                            class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-aura-purple">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Email Address</label>
+                        <input type="email" required placeholder="jane@example.com"
+                            class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-aura-purple">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Portfolio or LinkedIn
+                            URL</label>
+                        <input type="url" required placeholder="https://linkedin.com/in/profile"
+                            class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-aura-purple">
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit"
+                            class="w-full py-4 rounded-xl bg-gradient-to-r from-aura-purple to-aura-cyan text-white font-bold text-base shadow-lg shadow-aura-purple/30 hover:scale-[1.02] transition-transform">
+                            Submit Application
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Success State -->
+            <div id="apply-success-container" class="hidden text-center py-8 space-y-4">
+                <div
+                    class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-3xl">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Application Received!</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Thank you for applying to Aura Tech. Our talent acquisition team will review your profile and reach
+                    out shortly.
+                </p>
+                <button onclick="closeApplyModal()"
+                    class="px-6 py-2.5 rounded-xl bg-slate-800 text-white font-semibold text-sm hover:bg-slate-700">
+                    Close Window
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <div class="md:col-span-4 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div
+                            class="w-8 h-8 rounded-lg bg-gradient-to-tr from-aura-purple to-aura-cyan flex items-center justify-center text-white font-bold text-sm">
+                            A
+                        </div>
+                        <span class="text-lg font-extrabold text-white tracking-wider">AURA TECH</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+                        Redefining human-technology interaction through quantum mobile computing and adaptive neural
+                        hardware.
+                    </p>
+                </div>
+
+                <div class="md:col-span-2 space-y-3">
+                    <h4 class="text-white font-semibold text-sm">Company</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#mission" class="hover:text-white">Our Mission</a></li>
+                        <li><a href="#careers" class="hover:text-white">Careers</a></li>
+                        <li><a href="#impact" class="hover:text-white">Sustainability</a></li>
+                        <li><a href="#" class="hover:text-white">Press & Media</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2 space-y-3">
+                    <h4 class="text-white font-semibold text-sm">Products</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="index.html" class="hover:text-white">Aura Phone X</a></li>
+                        <li><a href="#" class="hover:text-white">Quantum OS</a></li>
+                        <li><a href="#" class="hover:text-white">Accessories</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-4">
+                    <h4 class="text-white font-semibold text-sm">Stay Updated</h4>
+                    <p class="text-xs text-slate-400">Subscribe to our corporate tech updates and research papers.</p>
+                    <form onsubmit="handleNewsletter(event)" class="flex items-center space-x-2">
+                        <input type="email" required placeholder="Enter work email"
+                            class="px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-aura-purple flex-1">
+                        <button type="submit"
+                            class="px-4 py-2.5 rounded-xl bg-aura-purple hover:bg-aura-pink text-white font-bold text-xs transition-colors">
+                            Join
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-slate-900 pt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 text-xs text-slate-500">
+                <p>&copy; 2026 Aura Mobile Inc. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-slate-300"><i class="fa-brands fa-x-twitter text-base"></i></a>
+                    <a href="#" class="hover:text-slate-300"><i class="fa-brands fa-instagram text-base"></i></a>
+                    <a href="#" class="hover:text-slate-300"><i class="fa-brands fa-linkedin text-base"></i></a>
+                    <a href="#" class="hover:text-slate-300"><i class="fa-brands fa-github text-base"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripting -->
+    <script>
+        // Navigation Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Job Filter Logic
+        function filterJobs(category) {
+            const buttons = document.querySelectorAll('.job-filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-aura-purple', 'text-white');
+                btn.classList.add('glass-card', 'text-slate-300');
+            });
+
+            const activeBtn = document.getElementById(`filter-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('glass-card', 'text-slate-300');
+                activeBtn.classList.add('bg-aura-purple', 'text-white');
+            }
+
+            const cards = document.querySelectorAll('.job-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Job Modal Logic
+        function openApplyModal(roleName) {
+            const modal = document.getElementById('apply-modal');
+            const modalCard = document.getElementById('modal-card');
+            document.getElementById('selected-role-text').innerText = roleName;
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalCard.classList.remove('scale-95');
+            modalCard.classList.add('scale-100');
+        }
+
+        function closeApplyModal() {
+            const modal = document.getElementById('apply-modal');
+            const modalCard = document.getElementById('modal-card');
+
+            modalCard.classList.remove('scale-100');
+            modalCard.classList.add('scale-95');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+
+            setTimeout(() => {
+                document.getElementById('apply-form-container').classList.remove('hidden');
+                document.getElementById('apply-success-container').classList.add('hidden');
+            }, 300);
+        }
+
+        function handleApplySubmit(event) {
+            event.preventDefault();
+            document.getElementById('apply-form-container').classList.add('hidden');
+            document.getElementById('apply-success-container').classList.remove('hidden');
+        }
+
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const btn = event.target.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'Subscribed!';
+            btn.classList.remove('bg-aura-purple');
+            btn.classList.add('bg-emerald-600');
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('bg-emerald-600');
+                btn.classList.add('bg-aura-purple');
+                event.target.reset();
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>
