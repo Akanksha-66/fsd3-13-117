@@ -1,10 +1,30 @@
 import express from 'express'
 
-const app = express()
+const app = express();
 
 // request goes here
-app.get("/",(req,res)=>{
+app.get("/",(req,res)=>{      //  ( / <- home page by default)
     res.send("<h1>Hello Express</h1>")
+});
+ 
+app.get("/about",(req,res)=>{
+    res.send("<h2>About us page</h2>")
+});
+
+const products = [
+  { id: 1, name: "marker", qty: 100, price: 15 },
+  { id: 2, name: "duster", qty: 50, price: 10 },
+];
+app.get("/products",(req,res)=>{
+    res.status(200).send(products);
+});
+
+
+// app.use((req,res) => {
+// res.status(404).send("<h1>Page not found </h1>");
+// });
+app.use((req,res) => {
+res.status(404).json(products)
 });
 
 
