@@ -3,7 +3,7 @@ import express from 'express'
 const app = express();
 
 // request goes here
-app.get("/",(req,res)=>{      //  ( / <- home page by default)
+app.get("/",(req,res)=>{   
     res.send("<h1>Hello Express</h1>")
 });
  
@@ -18,14 +18,14 @@ const products = [
 app.get("/products",(req,res)=>{
     res.status(200).send(products);
 });
-
-
-// app.use((req,res) => {
-// res.status(404).send("<h1>Page not found </h1>");
+// app.get("/products",(req,res)=>{
+//     res.status(200).json(products);
 // });
+
 app.use((req,res) => {
-res.status(404).json(products)
+res.status(404).send("<h1>Page not found </h1>");
 });
+
 
 
 
